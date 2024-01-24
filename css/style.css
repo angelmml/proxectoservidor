@@ -1,0 +1,65 @@
+/*
+Paxina index.html
+*/
+
+body {
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #028152;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #333;
+    color: white;
+  }
+
+  .centro1 h1{
+    text-align: center;
+  }
+
+
+/* 
+Paxina login.html
+*/
+.body-login{
+  margin: 0;
+  font-family:Arial, Helvetica, sans-serif;
+  background-color: #c5e6d5;
+}
+
+.body-login h1 , h3{
+text-align: center;
+}
+.login-container {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #8b8b8b;
+}
+
+
