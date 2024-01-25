@@ -107,3 +107,10 @@ Productos
     display: flex;
     justify-content: space-around;
 }
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+}
