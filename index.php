@@ -14,13 +14,13 @@
         <a href="ofertas.html">Ofertas</a>
         <?php
         session_start();
-        // Verificar si el usuario ha iniciado sesión
+        // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Si ha iniciado sesión, mostrar enlace a "Área Personal"
+        // Sesion iniciada aparece "Área Personal" e pechar sesion
         echo '<a href="area_personal.php">Área Personal</a>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
-        // Si no ha iniciado sesión, mostrar enlace a "Iniciar Sesión"
+        // Se non, amosamos iniciar sesion
         echo '<a href="login.html">Iniciar Sesión</a>';
     }
     ?>
