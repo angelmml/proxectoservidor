@@ -11,10 +11,17 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   UNIQUE KEY `UN_NOM_CAT` (`Nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=LATIN1;
 
-INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`) VALUES
-	(1, 'Comida', 'Platos e ingredientes', 1),
-	(2, 'Bedidas sin', 'Bebidas sin alcohol', 1),
-	(3, 'Bebidas con', 'Bebidas con alcohol', 1);
+INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`,`RutaIMX`) VALUES
+	(1, 'Carnes', 'Carnicería', 1, ),
+	(2, 'Peixes', 'Peixería', 1),
+	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1),
+  (4, 'Conxelados', 'Produtos conxelados', 1),
+  (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1),
+  (6, 'Panaderia e Bolleria','Pan, empanada e doces de masa', 1),
+  (7, 'Snacks e Chucherías', 'Doces en xeral', 1),
+  (8, 'Fogar', 'Produtos para o fogar', 1),
+  (9, 'Hixiene','Produtos de hixiene', 1),
+  (10,'Nadal', 'Produtos de nadal', 0);
 
 
 CREATE TABLE if NOT EXISTS `rol`(

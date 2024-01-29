@@ -11,7 +11,7 @@
     <div class="topnav">
         <a class="active" href="#inicio">Inicio</a>
         <a href="categorias.php">Categorías</a>
-        <a href="ofertas.html">Ofertas</a>
+        <a href="ofertas.php">Ofertas</a>
         <?php
         session_start();
         // Verificar usuario iniciou sesión
@@ -24,8 +24,6 @@
         echo '<a href="login.html">Iniciar Sesión</a>';
     }
     ?>
-
-        <a href="login.html">Iniciar Sesión</a>
     </div>
     <div class="centro1">
 	<h1>MercaXallas</h1>

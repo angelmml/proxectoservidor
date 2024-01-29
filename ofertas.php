@@ -11,9 +11,20 @@
 <body>
     <div class="topnav">
         <a href="index.php">Inicio</a>
-        <a href="categorias.html">Categorías</a>
-        <a class="active" href="productos.html">Ofertas</a>
-        <a href="login.html">Iniciar Sesión</a>
+        <a href="categorias.php">Categorías</a>
+        <a class="active" href="ofertas.php">Ofertas</a>
+        <?php
+        session_start();
+        // Verificar usuario iniciou sesión
+        if (isset($_SESSION['correo'])) {
+        // Sesion iniciada aparece "Área Personal" e pechar sesion
+        echo '<a href="area_personal.php">Área Personal</a>';
+        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+        } else {
+        // Se non, amosamos iniciar sesion
+        echo '<a href="login.html">Iniciar Sesión</a>';
+    }
+    ?>
     </div>
     <div class="centro1">
         <h1>Descrubre os nosos productos</h1>

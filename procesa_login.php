@@ -22,11 +22,11 @@ if ($result->num_rows > 0) {
     // Inicio de sesión exitoso
     session_start();
     $_SESSION['correo'] = $correo;
-    // Puedes redirigir al usuario a otra página después del inicio de sesión
+    // Rederiximos
     header("Location: index.php");
 } else {
     // Inicio de sesión fallido
-    echo "Credenciales incorrectas. Intenta de nuevo.";
+    echo "Fallo na autentificación";
 }
 
 $conn->close();
