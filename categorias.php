@@ -10,8 +10,8 @@
 
 <body>
     <div class="topnav">
-        <a href="index.html">Inicio</a>
-        <a class="active" href="categorias.html">Categorías</a>
+        <a href="index.php">Inicio</a>
+        <a class="active" href="categorias.php">Categorías</a>
         <a href="ofertas.html">Ofertas</a>
         <a href="login.html">Iniciar Sesión</a>
     </div>

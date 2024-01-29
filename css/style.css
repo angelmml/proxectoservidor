@@ -1,67 +1,107 @@
+/*
+Paxina index.html
+*/
 
-.body-login h1 {
-  text-align: center;
-  margin-bottom: 20px;
+body {
+  margin: 0;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
-.body-login h1 a {
+.topnav {
+  overflow: hidden;
+  background-color: #028152;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  color: #333;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color: white;
+  color: black;
 }
 
-.login-container {
-  width: 300px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.topnav a.active {
+  background-color: #333;
+  color: white;
+}
+
+
+.centro1 h1{
   text-align: center;
 }
-
-.login-container h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.login-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.login-container input {
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-container button {
   background-color: #028152;
   color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.login-container button:hover {
-  background-color: #026641;
+/* 
+Paxina login.html
+*/
+.body-login{
+margin: 0;
+font-family:Arial, Helvetica, sans-serif;
+background-color: #c5e6d5;
 }
 
-.login-container a {
-  text-decoration: none;
-  color: #333;
-  margin-top: 10px;
+.body-login h1 , h3, a{
+text-align: center;
+text-decoration: none;
+color: black;
+}
+.login-container {
+width: 400px;
+height: 300px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: 1px solid #ccc;
+padding: 20px;
+background-color: #8b8b8b;
 }
 
-.login-container a:hover {
-  text-decoration: underline;
+/* 
+Productos
+*/
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
+font-family: arial;
+}
+
+.price {
+color: grey;
+font-size: 22px;
+}
+
+.card button {
+border: none;
+outline: 0;
+padding: 12px;
+color: white;
+background-color: #000;
+text-align: center;
+cursor: pointer;
+width: 100%;
+font-size: 18px;
+}
+
+.card button:hover {
+opacity: 0.7;
 }

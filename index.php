@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -9,8 +10,21 @@
 <body>
     <div class="topnav">
         <a class="active" href="#inicio">Inicio</a>
-        <a href="categorias.html">Categorías</a>
+        <a href="categorias.php">Categorías</a>
         <a href="ofertas.html">Ofertas</a>
+        <?php
+        session_start();
+        // Verificar usuario iniciou sesión
+        if (isset($_SESSION['correo'])) {
+        // Sesion iniciada aparece "Área Personal" e pechar sesion
+        echo '<a href="area_personal.php">Área Personal</a>';
+        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+        } else {
+        // Se non, amosamos iniciar sesion
+        echo '<a href="login.html">Iniciar Sesión</a>';
+    }
+    ?>
+
         <a href="login.html">Iniciar Sesión</a>
     </div>
     <div class="centro1">
