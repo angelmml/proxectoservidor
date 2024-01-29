@@ -44,7 +44,7 @@ $correo = $_SESSION['correo'];
     <h2>Os meus pedidos</h2>
     <?php
   
-
+    ?>
 
 
 </body>
