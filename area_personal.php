@@ -82,8 +82,8 @@ $correo = $_SESSION['correo'];
                     $activo = isset($_POST["activo"]) ? 1 : 0;
 
                 // Consulta para insertar un novo usuario
-                $insertQuery = "INSERT INTO usuario (Correo, Contrasinal, Pais, CP, Ciudad, Enderezo, CodigoRol, Activo)
-                                VALUES ('$novoCorreo', '$novoContrasinal', '$novoPais', $novoCP, '$nuevaCiudad', '$novoEnderezo', $novoRol, $activo)";
+                $insertQuery = "INSERT INTO usuario (Correo, Contrasinal, Pais, CP, Ciudad, Enderezo, CodigoRol)
+                                VALUES ('$novoCorreo', '$novoContrasinal', '$novoPais', $novoCP, '$nuevaCiudad', '$novoEnderezo', $novoRol)";
 
                 if ($conn->query($insertQuery) === TRUE) {
                     echo "<p>novo usuario insertado correctamente.</p>";
@@ -95,7 +95,7 @@ $correo = $_SESSION['correo'];
 
                     // Formulario no que se engaden os usuarios
                     echo "<p>Insertar usuarios</p>";
-                    echo "<form action='.php' method='post'>";
+                    echo "<form method='post'>";
                     echo "<label for='correo'>Correo: </label>";
                     echo "<input type='text' placeholder='Correo' name='correo' id='correo'><br>";
                     echo "<label for= 'password'>Contrasinal :</label>";
@@ -109,12 +109,14 @@ $correo = $_SESSION['correo'];
                     echo "<label for='enderezo'>Enderezo:</label>";
                     echo "<input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'><br>";
                     echo "<label for='rol'>Rol do usuario:</label>";
-                    echo "<select name='rol id='rol'>";
-                    echo "<option value='administrador'>Administrador</option>";
-                    echo "<option value='usuario'>Usuario</usuario>";
+                    echo  "<label for='rol'>Rol do usuario:</label>";
+                    echo "<select name='rol' id='rol'>";
+                    echo "<option value='1'>Administrador</option>";
+                    echo "<option value='2'>Usuario</option>";
                     echo "</select>";
-                    echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
-                    echo "<label for='activo'>Activo</label>";
+
+                    /*echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
+                    echo "<label for='activo'>Activo</label>";*/
                     echo "<input type='submit' value='Insertar Usuario'>";
                     echo "</form>";
 
