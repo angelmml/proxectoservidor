@@ -104,6 +104,7 @@ $correo = $_SESSION['correo'];
                     // Táboa con opción de configurar/xestionar usuarios existentes
                 }else{
                     echo " Perfil de Usuario";
+                    echo "<h3>Historial de pedidos</h3>";
                 }
 
         
