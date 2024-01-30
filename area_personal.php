@@ -93,7 +93,7 @@ $correo = $_SESSION['correo'];
                     echo "<option value='usuario'>Usuario</usuario>";
                     echo "</select>";
                     echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
-                    echo "<label for='activo'>Activo</label>";
+                    echo "<label for='activo'>Activo </label>";
 
 
 
