@@ -56,6 +56,7 @@
                 echo '<div class="categoria">';
                 echo '<h2>' . $nombreCategoria . '</h2>';
                 echo '<p>' . $descripcionCategoria . '</p>';
+                echo '<p>Accede a categoría</p>';
                 echo '</div>';
                 }
             } else {

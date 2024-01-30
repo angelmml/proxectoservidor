@@ -73,9 +73,34 @@ $correo = $_SESSION['correo'];
                     echo "<h3>Xestor de usuarios</h3>";
 
                     // Formulario no que se engaden os usuarios
+                    echo "<p>Insertar usuarios</p>";
+                    echo "<form action='.php' method='post'>";
+                    echo "<label for='correo'>Correo: </label>";
+                    echo "<input type='text' placeholder='Correo' name='correo' id='correo'><br>";
+                    echo "<label for= 'password'>Contrasinal :</label>";
+                    echo "<input type='password' placeholder='Contrasinal' name='contrasinal' id='contrasinal'><br>";
+                    echo "<label for='pais'>País: </label>";
+                    echo "<input type='text' placeholder='País' name='pais' id='pais'><br>";
+                    echo "<label for='cp'>CP:</label>";
+                    echo "<input type='text' placeholder='CP' name='cp' id='cp'><br>";
+                    echo "<label for='cidade'>Cidade: </label>";
+                    echo "<input type='text' placeholder='Cidade' name='cidade' id='cidade'><br>";
+                    echo "<label for='enderezo'>Enderezo:</label>";
+                    echo "<input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'><br>";
+                    echo "<label for='rol'>Rol do usuario:</label>";
+                    echo "<select name='rol id='rol'>";
+                    echo "<option value='administrador'>Administrador</option>";
+                    echo "<option value='usuario'>Usuario</usuario>";
+                    echo "</select>";
+                    echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
+                    echo "<label for='activo'>Activo</label>";
+
+
 
                     echo "<h3>Listado de usuarios</h3>";
 
+
+                    
                     // Táboa con opción de configurar/xestionar usuarios existentes
                 }else{
                     echo " Perfil de Usuario";
