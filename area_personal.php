@@ -70,6 +70,29 @@ $correo = $_SESSION['correo'];
                 if ($cod_rol == 1){
                     echo "<h2>Portal de Administración</h2>";
                     echo "<h3>Xestor de usuarios</h3>";
+                    // Procesar el formulario de inserción
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $novoCorreo = $_POST["correo"];
+                    $novoContrasinal = $_POST["contrasinal"];
+                    $novoPais = $_POST["pais"];
+                    $novoCP = $_POST["cp"];
+                    $nuevaCiudad = $_POST["cidade"];
+                    $novoEnderezo = $_POST["enderezo"];
+                    $novoRol = $_POST["rol"];
+                    $activo = isset($_POST["activo"]) ? 1 : 0;
+
+                // Consulta para insertar un novo usuario
+                $insertQuery = "INSERT INTO usuario (Correo, Contrasinal, Pais, CP, Ciudad, Enderezo, CodigoRol, Activo)
+                                VALUES ('$novoCorreo', '$novoContrasinal', '$novoPais', $novoCP, '$nuevaCiudad', '$novoEnderezo', $novoRol, $activo)";
+
+                if ($conn->query($insertQuery) === TRUE) {
+                    echo "<p>novo usuario insertado correctamente.</p>";
+                } else {
+                    echo "<p>Error al insertar el novo usuario: " . $conn->error . "</p>";
+                }
+            }
+
+
                     // Formulario no que se engaden os usuarios
                     echo "<p>Insertar usuarios</p>";
                     echo "<form action='.php' method='post'>";
