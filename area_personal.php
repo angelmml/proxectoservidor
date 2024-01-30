@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['correo'])) {
     header("Location: login.html");
     exit();
@@ -37,13 +38,54 @@ $correo = $_SESSION['correo'];
     ?>
     </div>
 
+    
     <div>
-        <h3>Benvido <?php echo $correo ?></h3>
+        <h3>Benvido de novo <?php echo $correo ?></h3>
     </div>
 
-    <h2>Os meus pedidos</h2>
     <?php
-  
+        //Conectamos a base de datos
+        $servername = "127.0.0.1";
+        $username = "root";
+        $password = "";
+        $dbname = "pedidos";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+
+        if ($conn->connect_error){
+            die("Error na conexión a base de datos:". $conn->connect_error);
+        }
+        //Consulta
+
+        $query = "SELECT Correo, CodigoRol from usuario where CodigoRol = 1";
+        $result = $conn -> query($query);
+
+        if ($result->num_rows> 0){
+            while($row = $result->fetch_assoc()){
+                $nom_correo = $row['Correo'];
+                $cod_rol = $row['CodigoRol'];
+
+                if ($correo === $nom_correo){
+                    echo "<h2>Portal de Administración</h2>";
+
+                    echo "<h3>Xestor de usuarios</h3>";
+
+                    // Formulario no que se engaden os usuarios
+
+                    echo "<h3>Listado de usuarios</h3>";
+
+                    // Táboa con opción de configurar/xestionar usuarios existentes
+                }else{
+                    echo " Perfil de Usuario";
+                }
+
+        
+
+                            
+            }
+        }
     ?>
 
 

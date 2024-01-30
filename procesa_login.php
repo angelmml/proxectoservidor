@@ -14,9 +14,13 @@ if ($conn->connect_error) {
 $correo = $_POST['correo'];
 $password = $_POST['password'];
 
+
 // Consultar na base de datos
 $query = "SELECT * FROM usuario WHERE Correo = '$correo' AND Contrasinal = '$password'";
 $result = $conn->query($query);
+
+//Test
+
 
 if ($result->num_rows > 0) {
     // Inicio de sesión exitoso

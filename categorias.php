@@ -61,6 +61,8 @@
             } else {
                 echo "Sen categorías dispoñibles";
                     }
+
+            
                 ?>
 
     </div>
