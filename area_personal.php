@@ -115,6 +115,8 @@ $correo = $_SESSION['correo'];
                     echo "</select>";
                     echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
                     echo "<label for='activo'>Activo</label>";
+                    echo "<input type='submit' value='Insertar Usuario'>";
+                    echo "</form>";
 
                     //Listado usuarios
                     echo "<h3>Listado de usuarios</h3>";
