@@ -1,4 +1,5 @@
 <?php
+/*
 session_start();
 
 if (isset($_POST["correo"]) && isset($_POST["contrasinal"])) {
@@ -33,4 +34,5 @@ if (isset($_POST["correo"]) && isset($_POST["contrasinal"])) {
 
     $mysqli->close();
 }
+*/
 ?>
