@@ -114,3 +114,4 @@ CREATE TABLE IF NOT EXIST `log` (
   CONSTRAINT `log_ibfk_1` FOREIGN KEY (`CodUsuario`) REFERENCES `usuario`(`CodUsuario`),
   CONSTRAINT `log_ibfk_3` FOREIGN KEY (`CodPedido`) REFERENCES `pedido`(`CodPedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=LATIN1;
+

@@ -31,7 +31,7 @@
 
     
 <div class="footer">
-    <p>©MercaXallas 2024</p>
+    <p>© MercaXallas 2024</p>
 </div>    	
 </body>
 </html>

@@ -31,6 +31,7 @@ if ($result->num_rows > 0) {
 } else {
     // Inicio de sesión fallido
     echo "Fallo na autentificación";
+    echo "Prema aquí para ser redirixido";
 }
 
 $conn->close();
