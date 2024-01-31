@@ -2,26 +2,28 @@ CREATE DATABASE IF NOT EXISTS `pedidos`;
 USE `pedidos`;
 
 
+
 CREATE TABLE IF NOT EXISTS `categoria` (
   `CodCategoria` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) NOT NULL,
   `Descripcion` varchar(200) NOT NULL,
   `Activo` BOOLEAN NOT NULL,
+  `RutaIMX`varchar(200) NOT NULL,
   PRIMARY KEY (`CodCategoria`),
   UNIQUE KEY `UN_NOM_CAT` (`Nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=LATIN1;
 
 INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`,`RutaIMX`) VALUES
-	(1, 'Carnes', 'Carnicería', 1, ),
-	(2, 'Peixes', 'Peixería', 1),
-	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1),
-  (4, 'Conxelados', 'Produtos conxelados', 1),
-  (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1),
-  (6, 'Panaderia e Bolleria','Pan, empanada e doces de masa', 1),
-  (7, 'Snacks e Chucherías', 'Doces en xeral', 1),
-  (8, 'Fogar', 'Produtos para o fogar', 1),
-  (9, 'Hixiene','Produtos de hixiene', 1),
-  (10,'Nadal', 'Produtos de nadal', 0);
+	(1, 'Carnes', 'Carnicería', 1, 'imaxes/carniceria.jpg'),
+	(2, 'Peixes', 'Peixería', 1, 'imaxes/carniceria.jpg'),
+	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (4, 'Conxelados', 'Produtos conxelados', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (6, 'Panaderia e Bolleria','Pan, empanada e doces de masa', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (7, 'Snacks e Chucherías', 'Doces en xeral', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (8, 'Fogar', 'Produtos para o fogar', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (9, 'Hixiene','Produtos de hixiene', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+  (10,'Nadal', 'Produtos de nadal', 0,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg');
 
 
 CREATE TABLE if NOT EXISTS `rol`(
