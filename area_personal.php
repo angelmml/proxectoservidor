@@ -91,10 +91,8 @@ $correo = $_SESSION['correo'];
                     echo "<p>Error al insertar el novo usuario: " . $conn->error . "</p>";
                 }
             }
-
-
                     // Formulario no que se engaden os usuarios
-                    echo "<p>Insertar usuarios</p>";
+                    echo "<div class='form_usuario'><p><strong>Inserción de usuarios</strong></p>";
                     echo "<form method='post'>";
                     echo "<label for='correo'>Correo: </label>";
                     echo "<input type='text' placeholder='Correo' name='correo' id='correo'><br>";
@@ -109,26 +107,23 @@ $correo = $_SESSION['correo'];
                     echo "<label for='enderezo'>Enderezo:</label>";
                     echo "<input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'><br>";
                     echo "<label for='rol'>Rol do usuario:</label>";
-                    echo  "<label for='rol'>Rol do usuario:</label>";
                     echo "<select name='rol' id='rol'>";
                     echo "<option value='1'>Administrador</option>";
                     echo "<option value='2'>Usuario</option>";
                     echo "</select>";
-                    echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
-                    echo "<label for='activo'>Activo</label>";
-
+                    echo "<br>";
                     /*echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
                     echo "<label for='activo'>Activo</label>";*/
                     echo "<input type='submit' value='Insertar Usuario'>";
-                    echo "</form>";
+                    echo "</form></div>";
 
                     //Listado usuarios
                     echo "<h3>Listado de usuarios</h3>";
 
                     echo "<table border='1'>";
-                    echo "<tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Ciudad</th><th>Dirección</th><th>Rol</th></tr>";
+                    echo "<tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th></tr>";
         
-                    // Consulta para obtener todos los usuarios
+                    // Consulta para obter todos os usuarios
                     $queryUsuarios = "SELECT * FROM usuario";
                     $resultUsuarios = $conn->query($queryUsuarios);
         
@@ -146,9 +141,8 @@ $correo = $_SESSION['correo'];
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='8'>No hay usuarios registrados</td></tr>";
+                        echo "<tr><td colspan='8'>Non hai usuarios registrados</td></tr>";
                     }
-        
                     echo "</table>";
                     
                     // Táboa con opción de configurar/xestionar usuarios existentes
