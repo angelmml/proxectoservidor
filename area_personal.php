@@ -91,39 +91,40 @@ $correo = $_SESSION['correo'];
                     echo "<p>Error al insertar el novo usuario: " . $conn->error . "</p>";
                 }
             }
-                    // Formulario no que se engaden os usuarios
-                    echo "<div class='form_usuario'><p><strong>Inserción de usuarios</strong></p>";
-                    echo "<form method='post'>";
-                    echo "<label for='correo'>Correo: </label>";
-                    echo "<input type='text' placeholder='Correo' name='correo' id='correo'><br>";
-                    echo "<label for= 'password'>Contrasinal :</label>";
-                    echo "<input type='password' placeholder='Contrasinal' name='contrasinal' id='contrasinal'><br>";
-                    echo "<label for='pais'>País: </label>";
-                    echo "<input type='text' placeholder='País' name='pais' id='pais'><br>";
-                    echo "<label for='cp'>CP:</label>";
-                    echo "<input type='text' placeholder='CP' name='cp' id='cp'><br>";
-                    echo "<label for='cidade'>Cidade: </label>";
-                    echo "<input type='text' placeholder='Cidade' name='cidade' id='cidade'><br>";
-                    echo "<label for='enderezo'>Enderezo:</label>";
-                    echo "<input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'><br>";
-                    echo "<label for='rol'>Rol do usuario:</label>";
-                    echo "<select name='rol' id='rol'>";
-                    echo "<option value='1'>Administrador</option>";
-                    echo "<option value='2'>Usuario</option>";
-                    echo "</select>";
-                    echo "<br>";
-                    /*echo "<br><input type='checkbox' id='activo name='activo' value='1'>";
-                    echo "<label for='activo'>Activo</label>";*/
-                    echo "<input type='submit' value='Insertar Usuario'>";
-                    echo "</form></div>";
+            ?>
+                <!--Formulario no que se engaden os usuarios-->
+                <div class='form_usuario'>
+                <p><strong>Inserción de usuarios</strong></p>
+                <form method='post'>
+                <label for='correo'>Correo: </label>
+                <input type='text' placeholder='Correo' name='correo' id='correo'><br>
+                <label for= 'password'>Contrasinal :</label>
+                <input type='password' placeholder='Contrasinal' name='contrasinal' id='contrasinal'><br>
+                <label for='pais'>País: </label>
+                <input type='text' placeholder='País' name='pais' id='pais'><br>
+                <label for='cp'>CP:</label>
+                <input type='text' placeholder='CP' name='cp' id='cp'><br>
+                <label for='cidade'>Cidade: </label>
+                <input type='text' placeholder='Cidade' name='cidade' id='cidade'><br>
+                <label for='enderezo'>Enderezo:</label>
+                <input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'><br>
+                <label for='rol'>Rol do usuario:</label>
+                <select name='rol' id='rol'>
+                <option value='1'>Administrador</option>
+                <option value='2'>Usuario</option>
+                </select>
+                <br>
+                <input type='submit' value='Insertar Usuario'>
+                </form>
+                </div>
 
-                    //Listado usuarios
-                    echo "<h3>Listado de usuarios</h3>";
+                <!--Listado usuarios--> 
+                <h3>Listado de usuarios</h3>
 
-                    echo "<table border='1'>";
-                    echo "<tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th></tr>";
+                    <table border='1'>
+                   <tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th></tr>
         
-                    // Consulta para obter todos os usuarios
+                  <?php  // Consulta para obter todos os usuarios
                     $queryUsuarios = "SELECT * FROM usuario";
                     $resultUsuarios = $conn->query($queryUsuarios);
         

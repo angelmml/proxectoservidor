@@ -104,3 +104,13 @@ INSERT INTO `pedidosproducto` (`CodPedProd`, `CodPedido`, `CodProducto`, `Unidad
 	(2, 4, 3, 4, 2),
 	(3, 5, 1, 5, 2);
 
+CREATE TABLE IF NOT EXIST `log` (
+  `CodLog` int(11) NOT NULL AUTO_INCREMENT,
+  `CodUsuario` INT(11) NOT NULL,
+  `CodPedido` int(11) NOT NULL,
+  PRIMARY KEY (`CodLog`),
+  KEY `CodUsuario` (`CodUsuario`),
+  KEY `CodPedido` (`CodPedido`),
+  CONSTRAINT `log_ibfk_1` FOREIGN KEY (`CodUsuario`) REFERENCES `usuario`(`CodUsuario`),
+  CONSTRAINT `log_ibfk_3` FOREIGN KEY (`CodPedido`) REFERENCES `pedido`(`CodPedido`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=LATIN1;
