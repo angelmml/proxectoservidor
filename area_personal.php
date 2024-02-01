@@ -98,8 +98,8 @@ $correo = $_SESSION['correo'];
                 <input type='text' placeholder='Cidade' name='cidade' id='cidade'>
                 <label for='enderezo'>Enderezo:</label>
                 <input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'>
-                <input type='checkbox' id='activo' name='activo' value='1'>
                 <label for='activo'>Activo</label>
+                <input type='checkbox' id='activo' name='activo' value='1'>
                 <label for='rol'>Rol do usuario:</label>
                 <select name='rol' id='rol'>
                 <option value='1'>Administrador</option>
