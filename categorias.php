@@ -1,5 +1,4 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -16,22 +15,22 @@
         <a href="ofertas.php">Ofertas</a>
         <?php
         session_start();
-        // Verificar usuario iniciou sesión
+        // Verificar usuario inició sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Área Personal" e pechar sesion
-        echo '<a href="area_personal.php">Área Personal</a>';
-        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+            // Sesión iniciada aparece "Área Personal" e cerrar sesión
+            echo '<a href="area_personal.php">Área Personal</a>';
+            echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
-        // Se non, amosamos iniciar sesion
-        echo '<a href="login.html">Iniciar Sesión</a>';
-    }
-    ?>
+            // Si no, mostramos iniciar sesión
+            echo '<a href="login.html">Iniciar Sesión</a>';
+        }
+        ?>
     </div>
     <div class="centro1">
         <h1>Categorías</h1>
 
         <?php
-        //Conectamos a base de datos
+        // Conectamos a la base de datos
         $servername = "127.0.0.1";
         $username = "root";
         $password = "";
@@ -40,35 +39,34 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
-        die("Error  na conexión a base de datos: " . $conn->connect_error);
+            die("Error en la conexión a base de datos: " . $conn->connect_error);
         }
 
-        //Gacemos a consulta
+        // Hacemos la consulta
         $query = "SELECT * FROM categoria WHERE Activo = 1";
-        $result = $conn -> query($query);
+        $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $nombreCategoria = $row['Nombre'];
                 $descripcionCategoria = $row['Descripcion'];
+                $rutaImagen = $row['RutaIMX'];
 
-                // Mostramos as caterogias
+                // Mostramos las categorías
                 echo '<div class="categoria">';
                 echo '<h2>' . $nombreCategoria . '</h2>';
                 echo '<p>' . $descripcionCategoria . '</p>';
-                echo '<p>Accede a categoría</p>';
+                echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '">';
+                echo '<a href="seccion.php?categoria=' . $nombreCategoria . '">Acceder a categoría</a>';
                 echo '</div>';
-                }
-            } else {
-                echo "Sen categorías dispoñibles";
-                    }
-                ?>
+            }
+        } else {
+            echo "Sin categorías disponibles";
+        }
+        ?>
 
     </div>
 
-  
-
-    </div>
     <div class="footer">
         <p>© MercaXallas 2024</p>
     </div>
