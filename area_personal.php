@@ -34,7 +34,7 @@ $correo = $_SESSION['correo'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MecaXallas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/area_personal.css">
 </head>
 <body>
     <div class="topnav">
@@ -69,11 +69,11 @@ $correo = $_SESSION['correo'];
                     $nuevaCiudad = $_POST["cidade"];
                     $novoEnderezo = $_POST["enderezo"];
                     $novoRol = $_POST["rol"];
-                    $activo = isset($_POST["activo"]) ? 1 : 0;
+                    $novoActivo = isset($_POST["activo"]) ? 1 : 0;
 
                 // Consulta para insertar un novo usuario
-                $insertQuery = "INSERT INTO usuario (Correo, Contrasinal, Pais, CP, Ciudad, Enderezo, CodigoRol)
-                                VALUES ('$novoCorreo', '$novoContrasinal', '$novoPais', $novoCP, '$nuevaCiudad', '$novoEnderezo', $novoRol)";
+                $insertQuery = "INSERT INTO usuario (Correo, Contrasinal, Pais, CP, Ciudad, Enderezo, CodigoRol, Activo)
+                                VALUES ('$novoCorreo', '$novoContrasinal', '$novoPais', $novoCP, '$nuevaCiudad', '$novoEnderezo', '$novoRol', '$novoActivo')";
 
                 if ($conn->query($insertQuery) === TRUE) {
                     echo "<p>novo usuario insertado correctamente.</p>";
@@ -98,25 +98,24 @@ $correo = $_SESSION['correo'];
                 <input type='text' placeholder='Cidade' name='cidade' id='cidade'>
                 <label for='enderezo'>Enderezo:</label>
                 <input type='text' placeholder='Enderezo' name='enderezo' id='enderezo'>
-                <label for='activo'>Activo</label>
+                <label for='activo'>Activo:</label>
                 <input type='checkbox' id='activo' name='activo' value='1'>
                 <label for='rol'>Rol do usuario:</label>
                 <select name='rol' id='rol'>
                 <option value='1'>Administrador</option>
                 <option value='2'>Usuario</option>
                 </select>
-                <br>
                 <input type='submit' value='Insertar Usuario'>
                 <input type='submit' value='Borrar'>
                 <input type='submit' value='Actualizar'>
-                <input type='submit' value='Limpiar'>
+                <input type='reset' value='Limpiar'>
                 </form>
                 </div>
                 <!--Listado usuarios-->   
                 <h3>Listado de usuarios</h3>
                 <div id="listado">
                     <table border='1'>
-                   <tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th><th>Editar</th></tr>
+                   <tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th><th>Activo</th><th>Editar</th></tr>
         
                   <?php  // Consulta para obter todos os usuarios
                     $queryUsuarios = "SELECT * FROM usuario";
@@ -133,7 +132,8 @@ $correo = $_SESSION['correo'];
                             echo "<td>" . htmlspecialchars($rowUsuario['Ciudad']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowUsuario['Enderezo']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowUsuario['CodigoRol']) . "</td>";
-                            echo "<td><a href=''EDITAR</td>";
+                            echo "<td>" . htmlspecialchars($rowUsuario['Activo']) . "</td>";
+                            echo "<td>EDITAR</td>";
                             echo "</tr>";
                         }
                     } else {

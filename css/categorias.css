@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c5e6d5; /* Añade un color de fondo suave */
+    color: #333; /* Añade un color de texto más oscuro para mejorar la legibilidad */
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #028152;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16); /* Añade una sombra para darle profundidad */
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.3s ease; /* Añade una transición suave al cambiar el color de fondo */
+}
+
+.topnav a:hover {
+    background-color: #333;
+    color: white;
+}
+
+.topnav a.active {
+    background-color: #333;
+    color: white;
+}
+
+.centro1 h1{
+    text-align: center;
+}
+
+.centro1 .categoria img {
+    width: 20%; /* Ajusta el ancho de la imagen al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio disponible */
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #028152;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0; /* Añade un padding para darle más espacio al texto */
+}
+

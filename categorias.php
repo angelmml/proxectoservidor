@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MecaXallas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categorias.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
         <h1>Categorías</h1>
 
         <?php
-        // Conectamos a la base de datos
+        // Conectamos a base de datos
         $servername = "127.0.0.1";
         $username = "root";
         $password = "";
@@ -42,22 +42,20 @@
             die("Error en la conexión a base de datos: " . $conn->connect_error);
         }
 
-        // Hacemos la consulta
+        // Facemos a consulta
         $query = "SELECT * FROM categoria WHERE Activo = 1";
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $nombreCategoria = $row['Nombre'];
-                $descripcionCategoria = $row['Descripcion'];
                 $rutaImagen = $row['RutaIMX'];
 
-                // Mostramos las categorías
+                // Mostramos as categorías
                 echo '<div class="categoria">';
                 echo '<h2>' . $nombreCategoria . '</h2>';
-                echo '<p>' . $descripcionCategoria . '</p>';
                 echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '">';
-                echo '<a href="seccion.php?categoria=' . $nombreCategoria . '">Acceder a categoría</a>';
+                echo '<br> <a href="' . $nombreCategoria . '">Acceder a categoría</a>';
                 echo '</div>';
             }
         } else {

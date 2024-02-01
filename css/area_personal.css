@@ -1,0 +1,136 @@
+/*
+Paxina index.html
+*/
+
+body {
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #028152;
+  }
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #333;
+    color: white;
+  }
+  
+  
+  .centro1 h1{
+    text-align: center;
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #028152;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.form_usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+  }
+  
+  .form_usuario form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .form_usuario p {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .form_usuario label {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  .form_usuario input[type="text"],
+  .form_usuario input[type="password"] {
+    width:90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form_usuario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form_usuario input[type="submit"],
+  .form_usuario input[type="reset"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #028152;
+    cursor: pointer;
+  }
+  
+  .form_usuario input[type="submit"]:hover {
+    background-color: #000000;
+  }
+  
+  #listado {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 80%;
+  }
+  
+  #listado table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #listado th {
+    background-color: #028152;
+    color: white;
+  }
+  
+  #listado td, #listado th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #listado tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #listado tr:hover {
+    background-color: #ddd;
+  }

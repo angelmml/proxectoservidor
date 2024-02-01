@@ -1,8 +1,6 @@
 CREATE DATABASE IF NOT EXISTS `pedidos`;
 USE `pedidos`;
 
-
-
 CREATE TABLE IF NOT EXISTS `categoria` (
   `CodCategoria` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) NOT NULL,
@@ -15,8 +13,8 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 
 INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`,`RutaIMX`) VALUES
 	(1, 'Carnes', 'Carnicería', 1, 'imaxes/carniceria.jpg'),
-	(2, 'Peixes', 'Peixería', 1, 'imaxes/carniceria.jpg'),
-	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
+	(2, 'Peixes', 'Peixería', 1, 'imaxes/peixeria.jpg'),
+	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1,'imaxes/verduras.jpg'),
   (4, 'Conxelados', 'Produtos conxelados', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
   (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
   (6, 'Panaderia e Bolleria','Pan, empanada e doces de masa', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
@@ -24,7 +22,6 @@ INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`,`RutaI
   (8, 'Fogar', 'Produtos para o fogar', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
   (9, 'Hixiene','Produtos de hixiene', 1,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg'),
   (10,'Nadal', 'Produtos de nadal', 0,'C:\xampp\htdocs\proxectoservidor\proxectoservidor\imaxes\carniceria.jpg');
-
 
 CREATE TABLE if NOT EXISTS `rol`(
 `CodigoRol`INT(5) NOT NULL,
@@ -36,7 +33,6 @@ INSERT INTO `rol`(`CodigoRol`, `TipoRol`) VALUES
 	(1, 'Administrador'),
 	(2, 'Cliente');
 
-
 CREATE TABLE IF NOT EXISTS `usuario` (
   `CodUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `Correo` varchar(90) NOT NULL,
@@ -46,14 +42,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Ciudad` varchar(45) NOT NULL,
   `Enderezo` varchar(200) NOT NULL,
   `CodigoRol` INT(5) NOT NULL,
+  `Activo` BOOLEAN NOT NULL,
   PRIMARY KEY (`CodUsuario`),
   UNIQUE KEY `UN_USU_COR` (`Correo`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`CodigoRol`) REFERENCES `rol`(`CodigoRol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=LATIN1;
 
-INSERT INTO `usuario` (`CodUsuario`, `Correo`, `Contrasinal`, `Pais`, `CP`, `Ciudad`, `Enderezo`, `CodigoRol`) VALUES
-	(1, 'david', '1234', 'España', 28002, 'Madrid', 'C/ Padre  Claret, 8', 1),
-	(2, 'antonio', '1234', 'España', 11001, 'Cádiz', 'C/ Portales, 2 ', 2);
+INSERT INTO `usuario` (`CodUsuario`, `Correo`, `Contrasinal`, `Pais`, `CP`, `Ciudad`, `Enderezo`, `CodigoRol`,`Activo`) VALUES
+	(1, 'anxo', '1234', 'España', 15840, 'Santa Comba', 'Rua Pontevedra', 1, 1),
+	(2, 'manuel', '1234', 'España', 15840, 'Santa Cataliña', 'Avenida Alfonso Molina', 2, 1);
+  
 
 
 CREATE TABLE IF NOT EXISTS `pedido` (
@@ -106,7 +104,7 @@ INSERT INTO `pedidosproducto` (`CodPedProd`, `CodPedido`, `CodProducto`, `Unidad
 	(2, 4, 3, 4, 2),
 	(3, 5, 1, 5, 2);
 
-CREATE TABLE IF NOT EXIST `log` (
+/*CREATE TABLE IF NOT EXIST `log` (
   `CodLog` int(11) NOT NULL AUTO_INCREMENT,
   `CodUsuario` INT(11) NOT NULL,
   `CodPedido` int(11) NOT NULL,
@@ -116,4 +114,5 @@ CREATE TABLE IF NOT EXIST `log` (
   CONSTRAINT `log_ibfk_1` FOREIGN KEY (`CodUsuario`) REFERENCES `usuario`(`CodUsuario`),
   CONSTRAINT `log_ibfk_3` FOREIGN KEY (`CodPedido`) REFERENCES `pedido`(`CodPedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=LATIN1;
+*/
 
