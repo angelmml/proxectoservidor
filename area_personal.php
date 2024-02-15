@@ -106,7 +106,6 @@ $correo = $_SESSION['correo'];
                 <option value='2'>Usuario</option>
                 </select>
                 <input type='submit' value='Insertar Usuario'>
-                <input type='submit' value='Borrar'>
                 <input type='submit' value='Actualizar'>
                 <input type='reset' value='Limpiar'>
                 </form>
@@ -133,8 +132,20 @@ $correo = $_SESSION['correo'];
                             echo "<td>" . htmlspecialchars($rowUsuario['Enderezo']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowUsuario['CodigoRol']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowUsuario['Activo']) . "</td>";
-                            echo "<td>EDITAR</td>";
+                            echo "<td>";
+                            echo "<form method='post'>";
+                            echo "<input type='hidden' name='id-usuario' value='" . $rowUsuario['CodUsuario'] . "'>";
+                            echo "<input type='submit' name='editar-usuario' value='Editar'>";
+                            echo "</form>";
+                            echo "</td>";
+                            echo "<td>";
+                            echo "<form action='elimina_usuario.php' method='post'>";
+                            echo "<input type='hidden' name='id_usuario' value='" . $rowUsuario['ID'] . "'>";
+                            echo "<input type='submit' value='Eliminar'>";
+                            echo "</form>";
+                            echo "</td>";
                             echo "</tr>";
+                            
                         }
                     } else {
                         echo "<tr><td colspan='8'>Non hai usuarios registrados</td></tr>";
