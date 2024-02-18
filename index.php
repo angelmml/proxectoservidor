@@ -30,7 +30,7 @@
     </div>
 
     <div class="columna1">
-    <h5>Columna lateral</h5>
+    <h5>Acceso rápido</h5>
     
     <?php
         // Conectamos a base de datos
@@ -56,12 +56,11 @@
                 
 
                 // Mostramos as categorías
+                echo '<div class="categoria-container">';
                 echo '<div class="categoria">';
-                echo '<table>';
-                echo '<td>';
-                echo '<h5>' . $nombreCategoria . '</h5>';
-                echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '" width="40" height="40">';
-                echo '</table>';
+                echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '">';
+                echo '<span>' . $nombreCategoria . '</span>';
+                echo '</div>';
                 echo '</div>';
             }
         } else {
