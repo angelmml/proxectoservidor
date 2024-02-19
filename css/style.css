@@ -218,6 +218,7 @@ area personal
 }
 
 .columna1{
+  width: 200px;
   margin-left: 20px;
   border-right: 1px solid #00814b;
   padding-right: 20px;

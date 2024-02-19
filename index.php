@@ -30,7 +30,7 @@
     </div>
 
     <div class="columna1">
-    <h5>Acceso rápido</h5>
+    <h5>ACCESO RÁPIDO</h5>
     
     <?php
         // Conectamos a base de datos
