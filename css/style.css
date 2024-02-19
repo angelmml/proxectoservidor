@@ -199,3 +199,27 @@ area personal
 #listado tr:hover {
   background-color: #ddd;
 }
+.categoria-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  margin-bottom: 20px; /* Espacio entre cada categoría */
+}
+
+.categoria {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  margin-right: 20px; /* Espacio entre la imagen y el nombre de la categoría */
+}
+
+.categoria img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; /* Espacio entre la imagen y el nombre de la categoría */
+}
+
+.columna1{
+  margin-left: 20px;
+  border-right: 1px solid #00814b;
+  padding-right: 20px;
+  margin-right: 20px; 
+}
