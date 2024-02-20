@@ -81,3 +81,6 @@ body {
     text-align: center;
     padding: 10px 0;
 }
+.topnav .carrito{
+    float: right;
+}

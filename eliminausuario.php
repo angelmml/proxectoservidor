@@ -1,7 +1,7 @@
 <?php
-// Verifica si se ha enviado el formulario para eliminar el usuario
+// Verifica se foi enviado o formulario para eliminar o usuario
 if (isset($_POST['eliminar-usuario'])) {
-    // Conexión a la base de datos
+    // Conexión a base de datos
     $servername = "127.0.0.1";
     $username = "root";
     $password = "";
@@ -9,15 +9,15 @@ if (isset($_POST['eliminar-usuario'])) {
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Verifica la conexión
+    // Verificar a conexión
     if ($conn->connect_error) {
         die("Error en la conexión a la base de datos: " . $conn->connect_error);
     }
 
-    // Obtiene el ID del usuario a eliminar
+    // Coller a id do usuario a eliminar
     $idUsuarioEliminar = $_POST['id-usuario'];
 
-    // Consulta SQL para eliminar el usuario
+    // Consulta SQL pa eliminar usuario
     $sql = "DELETE FROM usuario WHERE CodUsuario = $idUsuarioEliminar";
 
     // Ejecuta la consulta

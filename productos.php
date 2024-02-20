@@ -20,12 +20,13 @@
             // Sesión iniciada aparece "Área Personal" e cerrar sesión
             echo '<a href="area_personal.php">Área Personal</a>';
             echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+            echo '<a class="carrito" href="agrega_carro">Carrito</a>';
         } else {
             // Se non a ten, mostramos iniciar sesión
             echo '<a href="login.html">Iniciar Sesión</a>';
         }
         ?>
-        <a class="carrito" href="agrega_carro">Carrito </a>
+        
     </div>
 
     <div class="centro1">

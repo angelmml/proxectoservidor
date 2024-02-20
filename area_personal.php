@@ -148,7 +148,7 @@ $correo = $_SESSION['correo'];
                             
                         }
                     } else {
-                        echo "<tr><td colspan='8'>Non hai usuarios registrados</td></tr>";
+                        echo "<tr><td colspan='8'>Non hai usuarios rexistrados</td></tr>";
                     }
                     echo "</table>";
                 echo "</div>";
