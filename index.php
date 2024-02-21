@@ -16,8 +16,8 @@
         session_start();
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Área Personal" e pechar sesion
-        echo '<a href="area_personal.php">Área Personal</a>';
+        // Sesion iniciada aparece "Xestión" e pechar sesion
+        echo '<a href="area_personal.php">Xestión</a>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
         // Se non, amosamos iniciar sesion
@@ -47,25 +47,28 @@
 
         // Facemos a consulta
         $query = "SELECT * FROM categoria WHERE Activo = 1";
-        $result = $conn->query($query);
+$result = $conn->query($query);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $rutaImagen = $row['RutaIcono'];
-                $nombreCategoria = $row['Nombre'];
-                
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $rutaImagen = $row['RutaIcono'];
+        $nombreCategoria = $row['Nombre'];
+        $codCategoria = $row['CodCategoria']; // Añadir el código de la categoría
 
-                // Mostramos as categorías
-                echo '<div class="categoria-container">';
-                echo '<div class="categoria">';
-                echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '">';
-                echo '<span>' . $nombreCategoria . '</span>';
-                echo '</div>';
-                echo '</div>';
-            }
-        } else {
-            echo "Sin categorías disponibles";
-        }
+        // Mostrar las categorías con enlaces
+        echo '<div class="categoria-container">';
+        echo '<div class="categoria">';
+        echo '<a href="productos.php?categoria=' . urlencode($nombreCategoria) . '">';
+        echo '<img src="' . $rutaImagen . '" alt="' . $nombreCategoria . '">';
+        echo '<span>' . $nombreCategoria . '</span>';
+        echo '</a>';
+        echo '</div>';
+        echo '</div>';
+    }
+} else {
+    echo "Sin categorías disponibles";
+}
+
         ?>
     </div>
 <div class="footer">

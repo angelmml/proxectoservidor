@@ -46,7 +46,7 @@ if ($correo) {
         // Verificar se o usuario iniciou sesion
         if ($correo) {
             // Sesión iniciada, mostrar opcions de usuario
-            echo '<a href="area_personal.php">Área Personal</a>';
+            echo '<a href="area_personal.php">Xestión</a>';
             echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
             // Sesión non iniciada, mostro opción de iniciar sesión
