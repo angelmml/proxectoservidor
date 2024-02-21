@@ -113,21 +113,24 @@ echo $insertQuery;
                 <h3>Listado de productos</h3>
                 <div id="listado">
                     <table border='1'>
-                   <tr><th>CodProducto</th><th>Nombre</th><th>Descripcion</th><th>Peso</th><th>Stock</th><th>Cod.Categoría</th><th>Activo</th><th>Prezo</th><th>RutaProducto</th></tr>
+                   <tr><th>CodProducto</th><th>Nombre</th><th>Descripcion</th><th>Peso</th><th>Stock</th><th>Activo</th><th>Prezo</th></tr>
         
                   <?php  // Consulta para obter todos os categorias
-                    $queryProducto = "SELECT * FROM productos";
+                    $queryProducto = "SELECT * FROM producto";
                     $resultProducto = $conn->query($queryProducto);
         
                     if ($resultProducto->num_rows > 0) {
-                        while ($rowProducto= $resultCategoria->fetch_assoc()) {
+                        while ($rowProducto= $resultProducto->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($rowProducto['CodCategoria']) . "</td>";
+                            echo "<td>" . htmlspecialchars($rowProducto['CodProducto']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Nombre']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Descripcion']) . "</td>";
+                            echo "<td>" . htmlspecialchars($rowProducto['Peso']) . "</td>";
+                            echo "<td>" . htmlspecialchars($rowProducto['Stock']) . "</td>";
+                            //echo "<td>" . htmlspecialchars($rowProducto['CodCategoria']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Activo']) . "</td>";
-                            echo "<td>" . htmlspecialchars($rowProducto['RutaIMX']) . "</td>";
-                            echo "<td>" . htmlspecialchars($rowProducto['RutaIcono']) . "</td>";
+                            echo "<td>" . htmlspecialchars($rowProducto['Prezo']) . "</td>";
+                            //echo "<td>" . htmlspecialchars($rowProducto['RutaProducto']) . "</td>";
                            /* echo "<form method='post'>";
                             echo "<input type='hidden' name='id-categoria' value='" . $rowCategoria['CodUsuario'] . "'>";
                             echo "<input type='submit' name='editar-categoria' value='Editar'>";
@@ -143,11 +146,11 @@ echo $insertQuery;
                             
                         }
                     } else {
-                        echo "<tr><td colspan='8'>Non hai categorias rexistradas</td></tr>";
+                        echo "<tr><td colspan='8'>Non hai productos rexistrados</td></tr>";
                     }
                     echo "</table>";
                 echo "</div>";
-                    // Táboa con opción de configurar/xestionar categorias existentes
+                    
                 }else{
                     echo "Acceso denegado";
                 }             
