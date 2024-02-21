@@ -33,7 +33,7 @@ $correo = $_SESSION['correo'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MecaXallas</title>
+    <title>MercaXallas</title>
     <link rel="stylesheet" href="css/area_personal.css">
 </head>
 <body>
@@ -44,24 +44,25 @@ $correo = $_SESSION['correo'];
         <?php
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Xestión" e pechar sesion
-        echo '<div class="dropdown">';
-        echo '<button class="dropbtn">Xestión';
-        echo '<i class="fa fa-caret-down"></i>';
-        echo '</button>';
-        echo '<div class="dropdown-content">';
-        echo '<a href="area_personal.php">Xestión usuarios</a>';
-        echo '<a href="engade_categoria.php">Xestion categorias</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
-        echo '</div>';
-       
-        } else {
-        // Se non, amosamos iniciar sesion
-        echo '<a href="login.html">Iniciar Sesión</a>';
-    }
-    ?>
+            // Sesion iniciada aparece "Xestión" e pechar sesion
+            echo '<div class="dropdown">';
+            echo '<button class="dropbtn">Xestión';
+            echo '<i class="fa fa-caret-down"></i>';
+            echo '</button>';
+            echo '<div class="dropdown-content">';
+            echo '<a href="area_personal.php">Xestión usuarios</a>';
+            echo '<a href="engade_categoria.php">Xestion categorias</a>';
+            echo '<a href="engade_producto.php">Xestion productos</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+            echo '</div>';
+           
+            } else {
+            // Se non, amosamos iniciar sesion
+            echo '<a href="login.html">Iniciar Sesión</a>';
+        }
+        ?>
     </div> 
     <div>
         <h3>Benvido de novo <?php echo $correo ?></h3>
@@ -130,7 +131,7 @@ echo $insertQuery;
                             echo "<td>" . htmlspecialchars($rowCategoria['Activo']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['RutaIMX']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['RutaIcono']) . "</td>";
-                           /* echo "<form method='post'>";
+                            /*echo "<form method='post'>";
                             echo "<input type='hidden' name='id-categoria' value='" . $rowCategoria['CodUsuario'] . "'>";
                             echo "<input type='submit' name='editar-categoria' value='Editar'>";
                             echo "</form>";
@@ -139,7 +140,8 @@ echo $insertQuery;
                             echo "<form action='elimina_categoria.php' method='post'>";
                             echo "<input type='hidden' name='id_usuario' value='" . $rowCategoria['ID'] . "'>";
                             echo "<input type='submit' value='Eliminar'>";
-                            echo "</form>";*/
+                            echo "</form>";
+                            */
                             echo "</td>";
                             echo "</tr>";
                             

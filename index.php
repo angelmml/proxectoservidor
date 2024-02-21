@@ -82,6 +82,10 @@ if ($result->num_rows > 0) {
 
         ?>
     </div>
+
+<div class="contenido">
+    <h2>Contidos</h2>
+</div>
 <div class="footer">
     <p>© MercaXallas 2024</p>
 </div>    	

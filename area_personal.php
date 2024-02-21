@@ -44,24 +44,25 @@ $correo = $_SESSION['correo'];
         <?php
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Xestión" e pechar sesion
-        echo '<div class="dropdown">';
-        echo '<button class="dropbtn">Xestión';
-        echo '<i class="fa fa-caret-down"></i>';
-        echo '</button>';
-        echo '<div class="dropdown-content">';
-        echo '<a href="area_personal.php">Xestión usuarios</a>';
-        echo '<a href="engade_categoria.php">Xestion categorias</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
-        echo '</div>';
-       
-        } else {
-        // Se non, amosamos iniciar sesion
-        echo '<a href="login.html">Iniciar Sesión</a>';
-    }
-    ?>
+            // Sesion iniciada aparece "Xestión" e pechar sesion
+            echo '<div class="dropdown">';
+            echo '<button class="dropbtn">Xestión';
+            echo '<i class="fa fa-caret-down"></i>';
+            echo '</button>';
+            echo '<div class="dropdown-content">';
+            echo '<a href="area_personal.php">Xestión usuarios</a>';
+            echo '<a href="engade_categoria.php">Xestion categorias</a>';
+            echo '<a href="engade_producto.php">Xestion productos</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+            echo '</div>';
+           
+            } else {
+            // Se non, amosamos iniciar sesion
+            echo '<a href="login.html">Iniciar Sesión</a>';
+        }
+        ?>
     </div> 
     <div>
         <h3>Benvido de novo <?php echo $correo ?></h3>
