@@ -24,6 +24,7 @@
         echo '<div class="dropdown-content">';
         echo '<a href="area_personal.php">Xestión usuarios</a>';
         echo '<a href="engade_categoria.php">Xestion categorias</a>';
+        echo '<a href="engade_producto.php">Xestion productos</a>';
         echo '</div>';
         echo '</div>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
