@@ -1,3 +1,31 @@
+<?php
+session_start();
+
+$correo = isset($_SESSION['correo']) ? $_SESSION['correo'] : null;
+$cod_rol = null;
+
+if ($correo) {
+    //Conectamos a base de datos
+    $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $dbname = "pedidos";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    if ($conn->connect_error){
+        die("Error en la conexión a la base de datos: " . $conn->connect_error);
+    }
+    
+    //Consulta
+    $query = "SELECT Correo, CodigoRol FROM usuario WHERE Correo = '$correo'";
+    $result = $conn->query($query);
+    
+    if ($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $cod_rol = $row['CodigoRol'];
+    }
+}
+?>
 
 <!doctype html>
 <html lang="es">
@@ -13,10 +41,10 @@
         <a href="categorias.php">Categorías</a>
         <a href="ofertas.php">Ofertas</a>
         <?php
-        session_start();
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
         // Sesion iniciada aparece "Xestión" e pechar sesion
+        if ($cod_rol == 1){
         echo '<div class="dropdown">';
         echo '<button class="dropbtn">Xestión';
         echo '<i class="fa fa-caret-down"></i>';
@@ -27,6 +55,7 @@
         echo '<a href="engade_producto.php">Xestion productos</a>';
         echo '</div>';
         echo '</div>';
+        }
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         echo '</div>';
        
@@ -84,7 +113,7 @@ if ($result->num_rows > 0) {
     </div>
 
 <div class="contenido">
-    <h2>Contidos</h2>
+    <h2>Contidos ofrert</h2>
 </div>
 <div class="footer">
     <p>© MercaXallas 2024</p>

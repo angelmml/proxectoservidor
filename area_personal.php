@@ -26,6 +26,7 @@ $correo = $_SESSION['correo'];
                 $row = $result->fetch_assoc();
                 $nom_correo = $row['Correo'];
                 $cod_rol = $row['CodigoRol'];
+        }
 ?>
 
 <!doctype html>
@@ -168,7 +169,7 @@ $correo = $_SESSION['correo'];
                     echo " Perfil de Usuario";
                     echo "<h3>Historial de pedidos</h3>";
                 }             
-            }
+            
     ?>
 
 </body>

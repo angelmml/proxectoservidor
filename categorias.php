@@ -43,10 +43,14 @@ if ($correo) {
         <a class="active" href="categorias.php">Categorías</a>
         <a href="ofertas.php">Ofertas</a>
         <?php
+
+        if ($cod_rol == 1){
+             echo '<a href="area_personal.php">Xestión</a>';
+        }
         // Verificar se o usuario iniciou sesion
         if ($correo) {
             // Sesión iniciada, mostrar opcions de usuario
-            echo '<a href="area_personal.php">Xestión</a>';
+           
             echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
             // Sesión non iniciada, mostro opción de iniciar sesión
