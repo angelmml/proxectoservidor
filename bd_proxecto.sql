@@ -16,14 +16,15 @@ INSERT INTO `categoria` (`CodCategoria`, `Nombre`, `Descripcion`,`Activo`,`RutaI
 	(1, 'Carnes', 'Carnicería', 1, 'imaxes/carniceria.jpg', 'imaxes/iconos_taboa/carniceria.png'),
 	(2, 'Peixes', 'Peixería', 1, 'imaxes/peixeria.jpg', 'imaxes/iconos_taboa/peixeria.png'),
 	(3, 'Froitas e Verduras', 'Froitería / Verdulería', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/froitas.png'),
-  (4, 'Conxelados', 'Produtos conxelados', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/conxelados.png'),
-  (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/pasta.png'),
-  (6, 'Panaderia e Bolleria','Pan, empanada e doces de masa', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/panaderia.png'),
-  (7, 'Snacks e Chucherías', 'Doces en xeral', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/snack.png'),
-  (8, 'Fogar', 'Produtos para o fogar', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/fogar.png'),
-  (9, 'Hixiene','Produtos de hixiene', 1,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/hixiene.png'),
+  (4, 'Conxelados', 'Produtos conxelados', 1,'imaxes/conxelados.jpg', 'imaxes/iconos_taboa/conxelados.png'),
+  (5, 'Pastas e Arroces', 'Pastas e arroces en xeral', 1,'imaxes/pastas.jpg', 'imaxes/iconos_taboa/pasta.png'),
+  (6, 'Panaderia','Pan e empanadas', 1,'imaxes/pans.jpg', 'imaxes/iconos_taboa/panaderia.png'),
+  (7, 'Snacks e Doces', 'Doces en xeral', 1,'imaxes/snacks.jpg', 'imaxes/iconos_taboa/snack.png'),
+  (8, 'Fogar', 'Produtos para o fogar', 1,'imaxes/fogar.jpg', 'imaxes/iconos_taboa/fogar.png'),
+  (9, 'Hixiene','Produtos de hixiene', 1,'imaxes/hixiene.jpg', 'imaxes/iconos_taboa/hixiene.png'),
   (10,'Nadal', 'Produtos de nadal', 0,'imaxes/verduras.jpg', 'imaxes/iconos_taboa/nadal.png');
-
+  
+  
 CREATE TABLE if NOT EXISTS `rol`(
 `CodigoRol`INT(5) NOT NULL,
 `TipoRol` VARCHAR(90) NOT NULL,
@@ -78,18 +79,20 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `CodCategoria` int(11) NOT NULL,
   `Activo` BOOLEAN NOT NULL, 
   `Prezo`float NOT NULL,
+  `RutaProducto`varchar(200) NOT NULL,
   PRIMARY KEY (`CodProducto`),
   CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`CodCategoria`) REFERENCES `categoria`(`CodCategoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=LATIN1;
 
-INSERT INTO `producto` (`CodProducto`, `Nombre`, `Descripcion`, `Peso`, `Stock`, `CodCategoria`, `Activo`, `Prezo`) VALUES
-	(1, 'Chuleta ternera gallega', 'Chuleta de ternera gallega', 1, 100, 1, 1, 14),
-	(2, 'Ollomol', 'Ollomol de proximidade', 0.5, 20, 2, 1, 5),
-	(3, 'Mandarina', 'Mandarina valenciana', 1, 50, 2, 1, 2.20),
-  (4, 'Croquetas', 'Croquetas de xamon', 0.5, 30, 4, 1, 1.99),
-  (5, 'Chuleta ternera asturiana', 'Chuleta de ternera asturiana', 1, 0, 1, 0, 11),
-  (6, 'Arroz blanco', 'Arroz redondo blanco', 1, 50, 5, 1, 1.20);
-
+INSERT INTO `producto` (`CodProducto`, `Nombre`, `Descripcion`, `Peso`, `Stock`, `CodCategoria`, `Activo`, `Prezo`,`RutaProducto`) VALUES
+	(1, 'Chuleta ternera gallega', 'Chuleta de ternera gallega', 1, 100, 1, 1, 14,'imaxes/carniceria.jpg'),
+	(2, 'Ollomol', 'Ollomol de proximidade', 0.5, 20, 2, 1, 5,'imaxes/carniceria.jpg'),
+	(3, 'Mandarina', 'Mandarina valenciana', 0.15, 50, 3, 1, 2.20,'imaxes/carniceria.jpg'),
+  (4, 'Croquetas', 'Croquetas de xamon', 0.5, 30, 4, 1, 1.99,'imaxes/carniceria.jpg'),
+  (5, 'Chuleta ternera asturiana', 'Chuleta de ternera asturiana', 1, 0, 1, 0, 11,'imaxes/carniceria.jpg'),
+  (6, 'Arroz blanco', 'Arroz redondo blanco', 1, 50, 5, 1, 1.20,'imaxes/carniceria.jpg'),
+  (7, 'Barra Baguette', 'Pan francés de sempre', 0.3, 50, 6, 1, 0.60,'imaxes/carniceria.jpg'),
+  (8, 'Barra Chapata', 'Pan con xeito', 0.550, 40, 6, 1, 1.10,'imaxes/carniceria.jpg');
 
 CREATE TABLE IF NOT EXISTS `pedidosproducto` (
   `CodPedProd` int(11) NOT NULL AUTO_INCREMENT,
@@ -110,7 +113,7 @@ INSERT INTO `pedidosproducto` (`CodPedProd`, `CodPedido`, `CodProducto`, `Unidad
 	(2, 4, 3, 4, 2),
 	(3, 5, 1, 5, 2);
 
-CREATE TABLE IF NOT EXIST `log` (
+/*CREATE TABLE IF NOT EXIST `log` (
   `CodLog` int(11) NOT NULL AUTO_INCREMENT,
   `CodUsuario` INT(11) NOT NULL,
   `CodPedido` int(11) NOT NULL,
@@ -120,5 +123,5 @@ CREATE TABLE IF NOT EXIST `log` (
   CONSTRAINT `log_ibfk_1` FOREIGN KEY (`CodUsuario`) REFERENCES `usuario`(`CodUsuario`),
   CONSTRAINT `log_ibfk_3` FOREIGN KEY (`CodPedido`) REFERENCES `pedido`(`CodPedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=LATIN1;
-
+*/
 

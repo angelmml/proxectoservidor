@@ -17,8 +17,8 @@
         session_start();
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Área Personal" e pechar sesion
-        echo '<a href="area_personal.php">Área Personal</a>';
+        // Sesion iniciada aparece "Xestion" e pechar sesion
+        echo '<a href="area_personal.php">Xestión</a>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         } else {
         // Se non, amosamos iniciar sesion

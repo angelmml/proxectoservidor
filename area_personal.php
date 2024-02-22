@@ -26,6 +26,7 @@ $correo = $_SESSION['correo'];
                 $row = $result->fetch_assoc();
                 $nom_correo = $row['Correo'];
                 $cod_rol = $row['CodigoRol'];
+        }
 ?>
 
 <!doctype html>
@@ -44,14 +45,25 @@ $correo = $_SESSION['correo'];
         <?php
         // Verificar usuario iniciou sesión
         if (isset($_SESSION['correo'])) {
-        // Sesion iniciada aparece "Área Personal" e pechar sesion
-        echo '<a class="active" href="area_personal.php">Área Personal</a>';
-        echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
-        } else {
-        // Se non, amosamos iniciar sesion
-        echo '<a href="login.html">Iniciar Sesión</a>';
-    }
-    ?>
+            // Sesion iniciada aparece "Xestión" e pechar sesion
+            echo '<div class="dropdown">';
+            echo '<button class="dropbtn">Xestión';
+            echo '<i class="fa fa-caret-down"></i>';
+            echo '</button>';
+            echo '<div class="dropdown-content">';
+            echo '<a href="area_personal.php">Xestión usuarios</a>';
+            echo '<a href="engade_categoria.php">Xestion categorias</a>';
+            echo '<a href="engade_producto.php">Xestion productos</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
+            echo '</div>';
+           
+            } else {
+            // Se non, amosamos iniciar sesion
+            echo '<a href="login.html">Iniciar Sesión</a>';
+        }
+        ?>
     </div> 
     <div>
         <h3>Benvido de novo <?php echo $correo ?></h3>
@@ -148,7 +160,7 @@ $correo = $_SESSION['correo'];
                             
                         }
                     } else {
-                        echo "<tr><td colspan='8'>Non hai usuarios registrados</td></tr>";
+                        echo "<tr><td colspan='8'>Non hai usuarios rexistrados</td></tr>";
                     }
                     echo "</table>";
                 echo "</div>";
@@ -157,7 +169,7 @@ $correo = $_SESSION['correo'];
                     echo " Perfil de Usuario";
                     echo "<h3>Historial de pedidos</h3>";
                 }             
-            }
+            
     ?>
 
 </body>

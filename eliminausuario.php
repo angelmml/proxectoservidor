@@ -1,33 +1,36 @@
 <?php
-// Verifica si se ha enviado el formulario para eliminar el usuario
-if (isset($_POST['eliminar-usuario'])) {
-    // Conexión a la base de datos
+session_start();
+
+if (!isset($_SESSION['correo'])) {
+    header("Location: login.html");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_usuario"])) {
+    $idUsuario = $_POST["id_usuario"];
+
+    //Conectamos a base de datos
     $servername = "127.0.0.1";
     $username = "root";
     $password = "";
     $dbname = "pedidos";
-
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Verifica la conexión
-    if ($conn->connect_error) {
-        die("Error en la conexión a la base de datos: " . $conn->connect_error);
+    if ($conn->connect_error){
+        die("Error na conexión a base de datos:". $conn->connect_error);
     }
 
-    // Obtiene el ID del usuario a eliminar
-    $idUsuarioEliminar = $_POST['id-usuario'];
+    // Consulta para eliminar o usuario
+    $deleteQuery = "DELETE FROM usuario WHERE CodUsuario = '$idUsuario'";
 
-    // Consulta SQL para eliminar el usuario
-    $sql = "DELETE FROM usuario WHERE CodUsuario = $idUsuarioEliminar";
-
-    // Ejecuta la consulta
-    if ($conn->query($sql) === TRUE) {
-        echo "Usuario eliminado exitosamente";
+    if ($conn->query($deleteQuery) === TRUE) {
+        echo "<p>Usuario eliminado correctamente.</p>";
     } else {
-        echo "Error al eliminar el usuario: " . $conn->error;
+        echo "<p>Error ao eliminar o usuario: " . $conn->error . "</p>";
     }
 
-    // Cierra la conexión
     $conn->close();
+
+    header("Location: area_personal.php");
 }
 ?>
