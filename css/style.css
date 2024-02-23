@@ -273,7 +273,7 @@ area personal
   background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
+/* Show the dropdown menu o hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
