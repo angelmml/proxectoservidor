@@ -11,15 +11,12 @@ if ($correo) {
     $password = "";
     $dbname = "pedidos";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    
     if ($conn->connect_error){
         die("Error en la conexión a la base de datos: " . $conn->connect_error);
     }
-    
     //Consulta
     $query = "SELECT Correo, CodigoRol FROM usuario WHERE Correo = '$correo'";
     $result = $conn->query($query);
-    
     if ($result->num_rows > 0){
         $row = $result->fetch_assoc();
         $cod_rol = $row['CodigoRol'];
@@ -58,7 +55,7 @@ if ($correo) {
         echo '</div>';
         echo '</div>';
         }
-        echo '<a class="carrito" href="xestion_carro.php">Carrito</a>';
+        echo '<a class="carrito" href="procesa_carro.php">Carrito</a>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         echo '</div>';
        

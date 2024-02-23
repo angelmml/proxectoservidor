@@ -112,9 +112,37 @@ if ($result->num_rows > 0) {
         ?>
     </div>
 
-<div class="contenido">
-    <h2>Contidos ofrert</h2>
-</div>
+    <div class="centro1">
+        <h1>Descrubre os nosos productos</h1>
+    </div>
+
+    <h2 style="text-align:center">Ofertas do día</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="imaxes/repolo.jpg" alt="Repolo" style="width:100%">
+                <h1>Repolo Galego</h1>
+                <p class="price">$4.99</p>
+                <p>Repolos. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                <p><button>Engadir ao carriño</button></p>
+            </div>
+            <div class="card">
+                <img src="imaxes/leitepremium.jpg" alt="LeitePremium" style="width:100%">
+                <h1>Leite Premium </h1>
+                <p class="price">€2.99</p>
+                <p>Leite de vaca lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                <p><button>Engadir ao carriño</button></p>
+            </div>
+            <div class="card">
+                <img src="imaxes/chourizos.png" alt="Chourizos" style="width:100%">
+                <h1>Chourizos Xallas</h1>
+                <p class="price">€14.99</p>
+                <p>Chourizos xalleiros lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                <p><button>Engadir ao carriño</button></p>
+            </div>
+        </div>
+    <div class="footer">
+        <p>© MercaXallas 2024</p>
+    </div>
 <div class="footer">
     <p>© MercaXallas 2024</p>
 </div>    	

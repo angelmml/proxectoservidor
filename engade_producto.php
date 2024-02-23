@@ -1,31 +1,38 @@
 <?php
 session_start();
 
-
+// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['correo'])) {
     header("Location: login.html");
     exit();
 }
 
+// Obtener el correo de la sesión
 $correo = $_SESSION['correo'];
+$cod_rol = null;
 
-        //Conectamos a base de datos
-        $servername = "127.0.0.1";
-        $username = "root";
-        $password = "";
-        $dbname = "pedidos";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error){
-            die("Error na conexión a base de datos:". $conn->connect_error);
-        }
-        //Consulta
-        $query = "SELECT Correo, CodigoRol from usuario where Correo = '$correo'";
-        $result = $conn -> query($query);
+// Conectarse a la base de datos
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "pedidos";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-        if ($result->num_rows> 0){
-                $row = $result->fetch_assoc();
-                $nom_correo = $row['Correo'];
-                $cod_rol = $row['CodigoRol'];
+if ($conn->connect_error) {
+    die("Error en la conexión a la base de datos: " . $conn->connect_error);
+}
+
+// Consultar el rol del usuario
+$query = "SELECT Correo, CodigoRol FROM usuario WHERE Correo = '$correo'";
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $cod_rol = $row['CodigoRol'];
+}
+
+// Obtener el parámetro 'categoria' de la URL
+$categoriaSeleccionada = isset($_GET['categoria']) ? $_GET['categoria'] : null;
 ?>
 
 <!doctype html>
@@ -57,7 +64,6 @@ $correo = $_SESSION['correo'];
             echo '</div>';
             echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
             echo '</div>';
-           
             } else {
             // Se non, amosamos iniciar sesion
             echo '<a href="login.html">Iniciar Sesión</a>';
@@ -86,8 +92,8 @@ $correo = $_SESSION['correo'];
                 VALUES ('$proNome', '$proDescripcion','$proPeso', '$proStock','$proCodCategoria' ,'$proActivo', '$proPrezo', '$proRutaProducto')";
 
 
-//Echo para poder ver a consulta (resultado)                    
-echo $insertQuery;
+                //Echo para poder ver a consulta (resultado)                    
+                echo $insertQuery;
                 if ($conn->query($insertQuery) === TRUE) {
                     echo "<p>Novo producto insertado correctamente.</p>";
                 } else {
@@ -127,7 +133,9 @@ echo $insertQuery;
                    <tr><th>CodProducto</th><th>Nombre</th><th>Descripcion</th><th>Peso</th><th>Stock</th><th>Activo</th><th>Prezo</th></tr>
         
                   <?php  // Consulta para obter todos os categorias
-                    $queryProducto = "SELECT * FROM producto";
+                    $queryProducto = "SELECT * FROM producto WHERE CodCategoria = (
+                        SELECT CodCategoria FROM categoria WHERE Nombre = '$categoriaSeleccionada')";
+                    
                     $resultProducto = $conn->query($queryProducto);
         
                     if ($resultProducto->num_rows > 0) {
@@ -138,20 +146,10 @@ echo $insertQuery;
                             echo "<td>" . htmlspecialchars($rowProducto['Descripcion']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Peso']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Stock']) . "</td>";
-                            //echo "<td>" . htmlspecialchars($rowProducto['CodCategoria']) . "</td>";
-                            echo "<td>" . htmlspecialchars($rowProducto['Activo']) . "</td>";
+                            $activoText = ($rowProducto['Activo'] == 1) ? "Activo" : "Inactivo";
+                            echo "<td>" . htmlspecialchars($activoText) . "</td>";
+                            //echo "<td>" . htmlspecialchars($rowProducto['Activo']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowProducto['Prezo']) . "</td>";
-                            //echo "<td>" . htmlspecialchars($rowProducto['RutaProducto']) . "</td>";
-                           /* echo "<form method='post'>";
-                            echo "<input type='hidden' name='id-categoria' value='" . $rowCategoria['CodUsuario'] . "'>";
-                            echo "<input type='submit' name='editar-categoria' value='Editar'>";
-                            echo "</form>";
-                            echo "</td>";
-                            echo "<td>";
-                            echo "<form action='elimina_categoria.php' method='post'>";
-                            echo "<input type='hidden' name='id_usuario' value='" . $rowCategoria['ID'] . "'>";
-                            echo "<input type='submit' value='Eliminar'>";
-                            echo "</form>";*/
                             echo "</td>";
                             echo "</tr>";
                             
@@ -165,7 +163,7 @@ echo $insertQuery;
                 }else{
                     echo "Acceso denegado";
                 }             
-            }
+        
     ?>
 
 </body>

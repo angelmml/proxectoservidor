@@ -54,7 +54,7 @@ $correo = $_SESSION['correo'];
         echo '</div>';
         echo '</div>';
         }
-        echo '<a class="carrito" href="agrega_carro">Carrito</a>';
+        echo '<a class="carrito" href="procesa_carro.php">Carrito</a>';
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         echo '</div>';
        
