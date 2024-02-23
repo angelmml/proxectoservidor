@@ -25,6 +25,7 @@ if ($result->num_rows> 0){
     $cod_rol = $row['CodigoRol'];
 }
 ?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -88,6 +89,29 @@ if ($cod_rol == 1){
             echo "<p>Error al insertar el novo usuario: " . $conn->error . "</p>";
         }
     }
+
+    // Procesar la edición del usuario
+    if (isset($_POST["editar-usuario"])) {
+        $id_usuario = $_POST["id-usuario"];
+        // Aquí deberías recuperar los datos existentes del usuario con la ID $id_usuario
+        // y mostrarlos en el formulario de edición
+        // Puedes hacer otra consulta a la base de datos para obtener los datos existentes del usuario
+        $queryUsuario = "SELECT * FROM usuario WHERE CodUsuario = '$id_usuario'";
+        $resultUsuario = $conn->query($queryUsuario);
+        if ($resultUsuario->num_rows > 0) {
+            $rowUsuario = $resultUsuario->fetch_assoc();
+            // Aquí puedes mostrar los datos del usuario en los campos del formulario de edición
+            $correoEditar = $rowUsuario["Correo"];
+            $contrasinalEditar = $rowUsuario["Contrasinal"];
+            $paisEditar = $rowUsuario["Pais"];
+            $cpEditar = $rowUsuario["CP"];
+            $cidadeEditar = $rowUsuario["Ciudad"];
+            $enderezoEditar = $rowUsuario["Enderezo"];
+            $rolEditar = $rowUsuario["CodigoRol"];
+            $activoEditar = $rowUsuario["Activo"];
+            // Luego, cuando el usuario modifique los datos y envíe el formulario, actualiza la información del usuario en la base de datos
+        }
+    }
     ?>
     <!--Formulario no que se engaden os usuarios-->
     <div class='form_usuario'>
@@ -122,7 +146,8 @@ if ($cod_rol == 1){
     <div id="listado">
         <table border='1'>
             <tr><th>ID</th><th>Correo</th><th>Contraseña</th><th>País</th><th>CP</th><th>Cidade</th><th>Dirección</th><th>Rol</th><th>Activo</th><th>Editar</th><th>Eliminar</th></tr>
-            <?php  
+
+            <?php
             $queryUsuarios = "SELECT * FROM usuario";
             $resultUsuarios = $conn->query($queryUsuarios);
 
@@ -169,11 +194,11 @@ if ($cod_rol == 1){
             ?>
         </table>
     </div>
-<?php
+    <?php
 }else{
     echo "Perfil de Usuario";
     echo "<h3>Historial de pedidos</h3>";
-}                  
+}
 ?>
 </body>
 </html>
