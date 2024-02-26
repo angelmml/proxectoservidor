@@ -128,7 +128,9 @@ echo $insertQuery;
                             echo "<td>" . htmlspecialchars($rowCategoria['CodCategoria']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['Nombre']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['Descripcion']) . "</td>";
-                            echo "<td>" . htmlspecialchars($rowCategoria['Activo']) . "</td>";
+                            // Columna de Activo
+                            $activoText = ($rowCategoria['Activo'] == 1) ? "Activo" : "Inactivo";
+                            echo "<td>" . htmlspecialchars($activoText) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['RutaIMX']) . "</td>";
                             echo "<td>" . htmlspecialchars($rowCategoria['RutaIcono']) . "</td>";
                             /*echo "<form method='post'>";

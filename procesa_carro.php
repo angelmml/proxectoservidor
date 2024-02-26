@@ -60,7 +60,11 @@ if (!isset($_SESSION['carrito']) || !is_array($_SESSION['carrito'])) {
             echo '</div>';
             echo '</div>';
         }
+<<<<<<< HEAD:xestion_carro.php
         echo '<a class="carrito" href="carrito.php">Carrito</a>';
+=======
+        echo '<a class="carrito" href="procesa_carro.php">Carrito</a>';
+>>>>>>> a7c68951b3d65a70f45060abd62409f3ee822c6f:procesa_carro.php
         echo '<a href="pechar_sesion.php">Cerrar Sesión</a>';
         echo '</div>';
     } else {

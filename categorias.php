@@ -91,7 +91,8 @@ if ($correo) {
                     echo '<h2>' . $nombreCategoria . '</h2>';
                     echo '<a href="productos.php?categoria=' . urlencode($nombreCategoria) . '">Acceder a categoría</a><br>';
                     if ($cod_rol == 1){
-                        echo '<a href=engade_producto.php><h3>Gestión de productos</h3></a><br>';
+                        echo '<a href="engade_producto.php?categoria=' . urlencode($nombreCategoria) . '"><h3>Gestión de productos</h3></a><br>';
+
                     }
                     echo '</div>'; 
                     echo '</div>'; 
