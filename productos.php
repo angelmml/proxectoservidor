@@ -112,10 +112,10 @@ if(isset($_GET['categoria'])) {
             echo "<p><strong>Peso ud. $pesoProducto kg</strong></p>";
             echo "<p><strong>Stock:</strong> $stockProducto</p>";
             echo "<p><strong>Precio:</strong> $precioProducto €/Kilo-Unidade</p>";
-            echo '<form action="agregar_al_carro.php" method="post">';
+            echo '<form action="agrega_carro.php" method="post">';
             echo '<input type="hidden" name="codigo_producto" value="' . $row['CodProducto'] . '">';
-            echo '<input type="number" name="cantidad" value="1" min="1" max="' . $stockProducto . '">';
-            echo '<input type="submit" value="Engadir ao carro">';
+            echo '<input type="number" name="cantidad" value="1" min="1" max="' . $row['Stock'] . '">';
+            echo '<input type="submit" value="Agregar al carrito">';
             echo '</form>';
             echo '</div>'; 
             echo '</div>';
