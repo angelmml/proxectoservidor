@@ -97,6 +97,7 @@ if(isset($_GET['categoria'])) {
     if ($result->num_rows > 0) {
         // Mostrar os productos
         while ($row = $result->fetch_assoc()) {
+            $codigoProducto= $row['CodProducto'];
             $nombreProducto = $row['Nombre'];
             $descripcionProducto = $row['Descripcion'];
             $pesoProducto = $row['Peso'];
@@ -113,8 +114,8 @@ if(isset($_GET['categoria'])) {
             echo "<p><strong>Stock:</strong> $stockProducto</p>";
             echo "<p><strong>Precio:</strong> $precioProducto €/Kilo-Unidade</p>";
             echo '<form action="agrega_carro.php" method="post">';
-            echo '<input type="hidden" name="codigo_producto" value="' . $row['CodProducto'] . '">';
-            echo '<input type="number" name="cantidad" value="1" min="1" max="' . $row['Stock'] . '">';
+            echo '<input type="hidden" name="codigo_producto" value="'. $codigoProducto .'">';
+            echo '<input type="number" name="cantidad" value="1" min="1" max="'. $stockProducto. '">';
             echo '<input type="submit" value="Agregar al carrito">';
             echo '</form>';
             echo '</div>'; 
