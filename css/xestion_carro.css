@@ -132,3 +132,31 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  #listado {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 80%;
+  }
+  
+  #listado table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #listado th {
+    background-color: #028152;
+    color: white;
+  }
+  
+  #listado td, #listado th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #listado tr {
+    background-color: #f8ebeb;
+    text-align: center;
+  }
+
+
+

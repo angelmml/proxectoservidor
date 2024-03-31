@@ -98,7 +98,7 @@ if ($correo) {
                     echo '</div>'; 
                     echo '</div>'; 
                 }
-            } else {
+            }else{
                 echo "Sin categorías disponibles";
             }
             ?>
